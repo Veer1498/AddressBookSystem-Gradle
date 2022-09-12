@@ -10,6 +10,11 @@ public class BooksMain {
         AddressBookMain main = new AddressBookMain();
         main.multipleAddressBooks();
 
+        //UC 13 - Storing Data into a File
+        System.out.println("Writing Whole Data into  a File");
+        AddressBook addressBook = new AddressBook();
+        addressBook.Read_Write_ToFile();
+
     }
 
 }

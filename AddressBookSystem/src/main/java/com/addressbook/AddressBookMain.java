@@ -21,25 +21,24 @@ public class AddressBookMain {
             int choice = sc.nextInt();
             switch (choice){
                 case 1:
-                    System.out.println("Please Enter AdressBook Name");
+                    System.out.println("Please Enter Address Book Name");
                     String name = sc.next();
                     if (bookMap.containsKey(name)){
                         System.out.println("Already Present");
                     }
                     else{
                         System.out.println("Welcome to AddressBook"+name);
-                        bookMap.put(name,adressbook);
                         menu();
+                        bookMap.put(name,adressbook);
                     }
                     break;
                 case 2:
-                    System.out.println("Please Enter AdressBook Name");
-                    String search = sc.next();
-                    bookMap.get(search);
+                    System.out.println("All AddressBooks");
+                    System.out.println(bookMap);
                     break;
                 case 0:
                     System.out.println("Exiting !!!");
-                    System.exit(0);
+                    return;
             }
         }
     }

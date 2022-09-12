@@ -15,6 +15,7 @@ public class AddressBook {
     Scanner sc = new Scanner(System.in);
     int count = 0;
 
+
     //Adding Contact into AddressBook
     public void addContact(){
 
@@ -147,4 +148,22 @@ public class AddressBook {
         System.out.println("The Contacts Saved in Book : "+count);
     }
 
+    //Read and Write To a File Function
+    public void Read_Write_ToFile(){
+        /*
+        Calling Methods from AddressBookIO Class
+         */
+        AddressBookIO.createFile();
+        String contactsData = personsList.toString();
+        AddressBookIO.WriteContactsToFile(contactsData);
+        AddressBookIO.WriteContactsToFile(contactsData);
+        AddressBookIO.readData();
+    }
+
+    @Override
+    public String toString() {
+        return "AddressBook{" +
+                "personsList=" + personsList +
+                '}';
+    }
 }
