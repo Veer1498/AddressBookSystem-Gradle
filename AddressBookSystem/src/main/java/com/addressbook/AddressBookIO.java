@@ -47,6 +47,11 @@ public class AddressBookIO {
     public static void readData() {
         try{
             String filePath = file.getAbsolutePath();
+            /**
+             * Java FileReader class is used to read data from the file.
+             * It returns data in byte format like FileInputStream class.
+             * It is character-oriented class which is used for file handling in java.
+             */
             FileReader fr = new FileReader(filePath);
             /**
              * Java BufferedReader class

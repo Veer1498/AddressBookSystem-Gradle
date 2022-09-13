@@ -10,11 +10,11 @@ import java.util.Scanner;
 
 //Main Class Containing Main Function
 public class AddressBookMain {
+    AddressBook adressbook = new AddressBook();
 
     //UC6 Multiple AddressBooks
     HashMap<String,AddressBook> bookMap = new HashMap<String, AddressBook>();
     Scanner sc = new Scanner(System.in);
-    AddressBook adressbook = new AddressBook();
     public void multipleAddressBooks(){
         while(true){
             System.out.println("Please Enter 1. Access Address Book 2.Print  0.Exit");

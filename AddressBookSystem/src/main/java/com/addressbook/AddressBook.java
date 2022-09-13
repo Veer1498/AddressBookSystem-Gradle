@@ -1,6 +1,7 @@
 package com.addressbook;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 //AddressBook Class for Managing Different Operations
 public class AddressBook {
-    ArrayList<ContactPerson> personsList = new ArrayList<>();
+    List<ContactPerson> personsList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
     int count = 0;
 
