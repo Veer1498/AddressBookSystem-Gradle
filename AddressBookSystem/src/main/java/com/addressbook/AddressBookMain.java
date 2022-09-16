@@ -20,7 +20,7 @@ public class AddressBookMain {
     Scanner sc = new Scanner(System.in);
     public void multipleAddressBooks(){
         while(true){
-            System.out.println("Please Enter 1. Access Address Book 2.Print 3. display all contacts 0.Exit");
+            System.out.println("Please Enter 1. Access Address Book 2.Print 3. display all contacts 4.To Print Contacts 5.To search by city  0.Exit");
             int choice = sc.nextInt();
             switch (choice){
                 case 1:
@@ -53,6 +53,24 @@ public class AddressBookMain {
                         break;
                     }
                 case 4:
+                    System.out.println("Please Enter Address Book Name");
+                    String bname = sc.next();
+                    if (bookMap.containsKey(bname)) {
+                        System.out.println("Already Present Adding names to old book");
+                        AddressBook adressbook = bookMap.get(bname);
+                        adressbook.display();
+                    }
+                case 5:
+                    Set<Map.Entry<String,AddressBook>> books = bookMap.entrySet();
+                    System.out.println("Enter place to search");
+                    String place = sc.next();
+                    for (Map.Entry contacts : books) {
+                        System.out.println(contacts.getKey());
+                        AddressBook allcontacts = (AddressBook) contacts.getValue();
+                        allcontacts.SearchbyCity(place);
+                    }
+                    break;
+
                 case 0:
                     System.out.println("Exiting !!!");
                     return;

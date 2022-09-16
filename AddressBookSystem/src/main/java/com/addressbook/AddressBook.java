@@ -163,6 +163,13 @@ public class AddressBook {
         boolean check = personsList.stream().filter(Contact-> Contact.getFirstName().equals(name)).count() > 0;
         return check;
     }
+    //To search person by place
+    public void SearchbyCity(String place){
+        personsList.stream().forEach(contactname ->{
+            if (contactname.getCity().equals(place) || contactname.getState().equals(place));
+            System.out.println("Available : "+contactname);
+        });
+    }
 
     //Read and Write To a File Function
     public void Read_Write_ToFile(){
