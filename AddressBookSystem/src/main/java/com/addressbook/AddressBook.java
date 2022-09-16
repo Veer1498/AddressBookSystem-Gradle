@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 //AddressBook Class for Managing Different Operations
 public class AddressBook {
-    List<ContactPerson> personsList = new ArrayList<>();
+    ArrayList<ContactPerson> personsList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
     int count = 0;
 
@@ -43,6 +43,10 @@ public class AddressBook {
 
         System.out.println("Enter a phone number:");
         contact.setPhoneNo(sc.nextLong());
+        if(duplicateCheck(contact.getFirstName())){
+            System.out.println("Please Change FirstName to save");
+            contact.setFirstName(sc.next());
+        }
         System.out.println("===================================");
         personsList.add(contact);
         System.out.println("Contact Added to AddressBook");
@@ -149,6 +153,17 @@ public class AddressBook {
         System.out.println("The Contacts Saved in Book : "+count);
     }
 
+
+    //To get the list data
+    public List<ContactPerson>  getContacts(){
+        return personsList;
+    }
+    //To check the name exists or not
+    public boolean duplicateCheck(String name){
+        boolean check = personsList.stream().filter(Contact-> Contact.getFirstName().equals(name)).count() > 0;
+        return check;
+    }
+
     //Read and Write To a File Function
     public void Read_Write_ToFile(){
         /*
@@ -161,10 +176,4 @@ public class AddressBook {
         AddressBookIO.readData();
     }
 
-    @Override
-    public String toString() {
-        return "AddressBook{" +
-                "personsList=" + personsList +
-                '}';
-    }
 }

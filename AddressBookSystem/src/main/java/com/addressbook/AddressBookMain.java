@@ -1,7 +1,10 @@
 package com.addressbook;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+
 /**
  * AddressBook Program
  * @author Veer.Singa
@@ -17,25 +20,39 @@ public class AddressBookMain {
     Scanner sc = new Scanner(System.in);
     public void multipleAddressBooks(){
         while(true){
-            System.out.println("Please Enter 1. Access Address Book 2.Print  0.Exit");
+            System.out.println("Please Enter 1. Access Address Book 2.Print 3. display all contacts 0.Exit");
             int choice = sc.nextInt();
             switch (choice){
                 case 1:
                     System.out.println("Please Enter Address Book Name");
                     String name = sc.next();
                     if (bookMap.containsKey(name)){
-                        System.out.println("Already Present");
+                        System.out.println("Already Present Adding names to old book");
+                        adressbook.addContact();
+                        bookMap.put(name,adressbook);
                     }
                     else{
                         System.out.println("Welcome to AddressBook"+name);
-                        menu();
+                        adressbook.addContact();
                         bookMap.put(name,adressbook);
                     }
                     break;
                 case 2:
                     System.out.println("All AddressBooks");
-                    System.out.println(bookMap);
+                    Set<String > keys = bookMap.keySet();
+                    for(String key : keys){
+                        System.out.println(" "+key);
+                    }
                     break;
+                case 3:
+                    Set<Map.Entry<String,AddressBook>> book = bookMap.entrySet();
+                    for (Map.Entry contacts : book){
+                        System.out.println(contacts.getKey());
+                        AddressBook allcontacts = (AddressBook) contacts.getValue();
+                        allcontacts.display();
+                        break;
+                    }
+                case 4:
                 case 0:
                     System.out.println("Exiting !!!");
                     return;
